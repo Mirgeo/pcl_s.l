@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de cookies | PCL Abogados</title>
+  <meta name="description" content="Política de cookies de PCL Abogados: qué son las cookies, tipos, gestión y configuración del navegador." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- =========================
+     COOKIE BANNER (CONSENT)
+     Pegar justo antes de </body>
+     ========================= -->
+
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+  <div class="cookie-card">
+    <div class="cookie-text">
+      <h2 id="cookieTitle">Cookies</h2>
+      <p id="cookieDesc">
+        Usamos cookies para que la web funcione correctamente y, si lo aceptas, para analizar el uso y mejorar el servicio.
+        Puedes aceptar, rechazar o configurar tus preferencias. Más info en nuestra
+        <a href="cookies.html">Política de cookies</a>.
+      </p>
+    </div>
+
+    <div class="cookie-actions">
+      <button type="button" class="btn-outline cookie-btn" id="cookieReject">Rechazar</button>
+      <button type="button" class="btn-outline cookie-btn" id="cookieSettings">Configurar</button>
+      <button type="button" class="btn cookie-btn" id="cookieAccept">Aceptar</button>
+    </div>
+
+    <div id="cookiePrefs" class="cookie-prefs" hidden>
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Necesarias</strong>
+          <p class="cookie-small">Siempre activas. Permiten funciones básicas y seguridad.</p>
+        </div>
+        <div class="cookie-switch cookie-switch--locked" aria-label="Cookies necesarias (siempre activas)">
+          <span>Activadas</span>
+        </div>
+      </div>
+
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Analíticas</strong>
+          <p class="cookie-small">Nos ayudan a entender el uso de la web para mejorarla.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookieAnalytics" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+          <span class="cookie-toggle-text">Activar</span>
+        </label>
+      </div>
+
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Marketing</strong>
+          <p class="cookie-small">Permiten medir campañas y mostrar contenido más relevante.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookieMarketing" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+          <span class="cookie-toggle-text">Activar</span>
+        </label>
+      </div>
+
+      <div class="cookie-actions cookie-actions--prefs">
+        <button type="button" class="btn-outline cookie-btn" id="cookieSave">Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const KEY = "pcl_cookie_consent_v1";
+
+    const banner = document.getElementById("cookieBanner");
+    const prefs = document.getElementById("cookiePrefs");
+
+    const btnAccept = document.getElementById("cookieAccept");
+    const btnReject = document.getElementById("cookieReject");
+    const btnSettings = document.getElementById("cookieSettings");
+    const btnSave = document.getElementById("cookieSave");
+
+    const cbAnalytics = document.getElementById("cookieAnalytics");
+    const cbMarketing = document.getElementById("cookieMarketing");
+
+    function getConsent(){
+      try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; }
+    }
+
+    function setConsent(consent){
+      localStorage.setItem(KEY, JSON.stringify(consent));
+    }
+
+    function hideBanner(){
+      if (!banner) return;
+      banner.classList.add("is-hidden");
+      setTimeout(() => { banner.style.display = "none"; }, 200);
+    }
+
+    function showBanner(openPrefs=false){
+      if (!banner) return;
+      banner.style.display = "block";
+      banner.classList.remove("is-hidden");
+
+      if (openPrefs){
+        prefs.hidden = false;
+      } else {
+        prefs.hidden = true;
+      }
+    }
+
+    // 👉 Aquí cargas scripts SOLO si el usuario acepta
+    function applyConsent(consent){
+      // consent = { necessary:true, analytics:boolean, marketing:boolean, ts:number }
+
+      // EJEMPLO: cargar Google Analytics SOLO si analytics=true
+      // if (consent.analytics) loadGA();
+
+      // EJEMPLO: cargar Pixel SOLO si marketing=true
+      // if (consent.marketing) loadMetaPixel();
+    }
+
+    // Permite abrir el panel desde un link del footer
+    window.openCookieSettings = function(){
+      const current = getConsent() || { necessary:true, analytics:false, marketing:false, ts: Date.now() };
+      cbAnalytics.checked = !!current.analytics;
+      cbMarketing.checked = !!current.marketing;
+      showBanner(true);
+    };
+
+    // Inicial
+    const current = getConsent();
+    if (!current){
+      // Primera visita: mostrar banner
+      cbAnalytics.checked = false;
+      cbMarketing.checked = false;
+      showBanner(false);
+    } else {
+      // Ya hay elección: aplicar y no mostrar
+      applyConsent(current);
+      hideBanner();
+    }
+
+    btnSettings?.addEventListener("click", () => {
+      const c = getConsent();
+      if (c){
+        cbAnalytics.checked = !!c.analytics;
+        cbMarketing.checked = !!c.marketing;
+      }
+      prefs.hidden = false;
+    });
+
+    btnAccept?.addEventListener("click", () => {
+      const consent = { necessary:true, analytics:true, marketing:true, ts: Date.now() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    btnReject?.addEventListener("click", () => {
+      const consent = { necessary:true, analytics:false, marketing:false, ts: Date.now() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    btnSave?.addEventListener("click", () => {
+      const consent = {
+        necessary:true,
+        analytics: !!cbAnalytics.checked,
+        marketing: !!cbMarketing.checked,
+        ts: Date.now()
+      };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+  })();
+</script>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  Madrid · Calle Moscu 56, 28840
+  &nbsp; 📞 <a href="tel:+34663932422">+34 663 932 422</a> ·
+  ✉️ <a href="mailto:contacto@pcl-abogados.com">contacto@pcl-abogados.com</a> ·
+  🟢 <a href="https://wa.me/34663932422" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+
+    <div class="logo">
+      <strong>PCL Abogados</strong><br>
+      <span>PRL, Derecho Laboral y Compliance/Ciberseguridad · Madrid</span>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav" aria-label="Navegación principal">
+  <a href="index.html" aria-current="page">Inicio</a>
+  <a href="abogado-en-madrid-pcl-abogados.html">Abogado en Madrid</a>
+  <a href="abogado-empresa-madrid.html">Abogado Empresa</a>
+  <a href="abogado-laboral-empresa-madrid.html">Laboral Empresas</a>
+  <a href="prl.html">PRL</a>
+  <a href="ciberseguridad.html">Ciberseguridad</a>
+  <a href="compliance.html">Compliance</a>
+  <a href="penal.html">Penal</a>
+  <a href="civil.html">Civil</a>
+  <a href="familia.html">Familia</a>
+  <a href="blog.html">Blog</a>
+  <a href="solicitar-consulta.html" class="btn-nav">Solicitar consulta</a>
+</nav>
+
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <header class="page-hero">
+      <h1>Política de cookies</h1>
+      <p class="page-lead">
+        Esta política explica qué son las cookies, para qué se usan y cómo puedes configurarlas.
+      </p>
+    </header>
+
+    <section class="prl-content">
+      <h2>1. ¿Qué son las cookies?</h2>
+      <p>
+        Las cookies son pequeños archivos que se descargan en tu dispositivo al acceder a un sitio web.
+        Permiten, entre otras cosas, almacenar y recuperar información sobre tus hábitos de navegación o tu dispositivo.
+      </p>
+
+      <h2>2. Tipos de cookies</h2>
+      <ul class="checklist">
+        <li><strong>Técnicas (necesarias):</strong> permiten la navegación y el uso de funciones básicas del sitio.</li>
+        <li><strong>Preferencias:</strong> recuerdan información para personalizar la experiencia.</li>
+        <li><strong>Analíticas:</strong> ayudan a entender cómo se usa la web (páginas visitadas, tiempo, etc.).</li>
+        <li><strong>Publicidad:</strong> permiten gestionar espacios publicitarios y mostrar anuncios relevantes.</li>
+      </ul>
+
+      <h2>3. Cookies utilizadas en este sitio</h2>
+      <p>
+        Actualmente, este sitio puede funcionar sin cookies no necesarias. Si en el futuro se incorporan
+        cookies analíticas o de terceros (por ejemplo, Google Analytics, Pixel, etc.), se implementará el
+        consentimiento previo cuando corresponda.
+      </p>
+
+     
+
+      <h2>4. Gestión de cookies</h2>
+      <p>
+        Puedes permitir, bloquear o eliminar las cookies instaladas en tu dispositivo mediante la configuración
+        de tu navegador. Los pasos varían según el navegador.
+      </p>
+
+      <h2>5. Cómo desactivar cookies (navegadores)</h2>
+      <ul class="checklist">
+        <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies.</li>
+        <li><strong>Firefox:</strong> Ajustes → Privacidad y seguridad → Cookies y datos del sitio.</li>
+        <li><strong>Safari:</strong> Preferencias → Privacidad → Cookies.</li>
+        <li><strong>Edge:</strong> Configuración → Cookies y permisos del sitio.</li>
+      </ul>
+
+      <h2>6. Actualizaciones</h2>
+      <p>
+        Esta política puede actualizarse por cambios legales o técnicos. Recomendamos revisarla periódicamente.
+      </p>
+
+      <p class="note">Última actualización: 22/02/2026.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  © 2026 PCL Abogados ·
+  <a href="solicitar-consulta.html">Contacto</a> ·
+  <a href="aviso-legal.html">Aviso legal</a> ·
+  <a href="politica-privacidad.html">Política de privacidad</a> ·
+  <a href="cookies.html" aria-current="page">Cookies</a> ·
+  <a href="https://wa.me/34663932422" target="_blank" rel="noopener">WhatsApp</a>
+</footer>
+
+<button id="toTop" type="button" aria-label="Subir">↑</button>
+
+<script>
+  // ===== Menú móvil (hamburguesa) =====
+  (function(){
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('mainNav');
+    if(!btn || !nav) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    function openMenu(){
+      nav.classList.add('is-open');
+      btn.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu(){
+      nav.classList.remove('is-open');
+      btn.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', () => {
+      nav.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', () => { if(window.innerWidth > 680) closeMenu(); });
+  })();
+
+  // ===== ToTop =====
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (!toTop) return;
+    toTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, { passive: true });
+  toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>

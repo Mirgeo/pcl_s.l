@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PCL Abogados Madrid | PRL, Laboral, Penal, Civil, Familia y Compliance</title>
+  <meta name="description" content="PCL Abogados en Madrid: PRL, Derecho Laboral, Penal, Civil y Familia, Compliance y Ciberseguridad. Consulta rápida por WhatsApp o llamada.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- AJUSTES VISUALES DEL SLIDER + BOTÓN WHATSAPP FLOTANTE -->
+  <style>
+    /* 1) Quitar fondo blanco del texto del slider */
+    .slide-text{
+      background: transparent !important;
+      box-shadow: none !important;
+      border: 0 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      padding: 0 18px 18px !important;
+      max-width: 720px;
+    }
+
+    .slide-text h2,
+    .slide-text p{
+      color: #fff !important;
+      text-shadow: 0 2px 10px rgba(0,0,0,.55);
+    }
+
+    /* 2) Ocultar flechas del slider */
+    .slides .prev,
+    .slides .next{
+      display: none !important;
+    }
+
+    /* 3) Botón WhatsApp flotante */
+    .floating-whatsapp{
+      position: fixed;
+      right: 24px;
+      bottom: 96px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
+      z-index: 9999;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0,0,0,.28);
+    }
+
+    @media (max-width: 680px){
+      .floating-whatsapp{
+        right: 16px;
+        bottom: 86px;
+        width: 54px;
+        height: 54px;
+        font-size: 26px;
+      }
+
+      .slide-text{
+        padding: 0 14px 14px !important;
+      }
+
+      .slide-text h2{
+        font-size: 1.35rem;
+      }
+
+      .slide-text p{
+        font-size: .98rem;
+      }
+    }
+  </style>
+
+  <!-- ✅ SEO local (LegalService / LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LegalService",
+    "name":"PCL Abogados",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Calle Moscu 56",
+      "addressLocality":"Madrid",
+      "postalCode":"28840",
+      "addressCountry":"ES"
+    },
+    "telephone":"+34 663 932 422",
+    "email":"contacto@pcl-abogados.com",
+    "areaServed":"Madrid",
+    "url":"https://pcl-abogados.com",
+    "sameAs":[
+      "https://wa.me/34663932422"
+    ]
+  }
+  </script>
+
+  <!-- ✅ FAQ schema (Home) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"¿En qué puede ayudarme un abogado en Madrid?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Te orientamos desde el primer contacto, analizamos tu caso, marcamos una estrategia (acuerdo o procedimiento) y ejecutamos con rigor. En PCL Abogados trabajamos PRL, Laboral, Civil/Familia, Penal, Compliance y Ciberseguridad."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"¿Atendéis urgencias?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Sí. Si el asunto es urgente (citación, inspección, incidente o situación inmediata), recomendamos llamada directa. También puedes escribir por WhatsApp para respuesta rápida."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"¿Qué hago si tengo un despido o un plazo cercano?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"En laboral los plazos importan. Contacta cuanto antes para revisar documentación, calcular opciones y preparar conciliación (SMAC) o demanda si corresponde."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"¿Qué incluye una asesoría de PRL?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Revisión de documentación, medidas y evidencias, preparación ante Inspección de Trabajo, respuesta a requerimientos y apoyo en accidentes laborales y expedientes sancionadores."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="tb-hide-xs">Madrid · Calle Moscu 56, 28840</span>
+  <span class="tb-hide-xs">·</span>
+  📞 <a href="tel:+34663932422">+34 663 932 422</a>
+  <span class="tb-hide-xs">·</span>
+  <span class="tb-hide-xs">✉️ <a href="mailto:contacto@pcl-abogados.com">contacto@pcl-abogados.com</a></span>
+  <span class="tb-hide-xs">·</span>
+  🟢 <a href="https://wa.me/34663932422" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+
+    <div class="logo">
+      <strong>PCL Abogados</strong><br>
+      <span>PRL, Derecho Laboral y Compliance/Ciberseguridad · Madrid</span>
+    </div>
+
+    <!-- Botón menú (solo móvil) -->
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav" aria-label="Navegación principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="abogado-en-madrid-pcl-abogados.html">Abogado en Madrid</a>
+      <a href="abogado-empresa-madrid.html">Abogado Empresa</a>
+      <a href="abogado-laboral-empresa-madrid.html">Laboral Empresas</a>
+      <a href="prl.html">PRL</a>
+      <a href="ciberseguridad.html">Ciberseguridad</a>
+      <a href="compliance.html">Compliance</a>
+      <a href="penal.html">Penal</a>
+      <a href="civil.html">Civil</a>
+      <a href="familia.html">Familia</a>
+      <a href="blog.html">Blog</a>
+      <a href="solicitar-consulta.html" class="btn-nav">Solicitar consulta</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- SLIDER -->
+<section class="slider">
+  <div class="container">
+    <div class="slides">
+
+      <div class="slide active">
+        <img class="slide-bg" src="slide-1.jpg" alt="" aria-hidden="true">
+        <img class="slide-img" src="slide-1.jpg" alt="PCL Abogados - Despacho en Madrid">
+        <div class="slide-text">
+          <h2>PRL, Laboral y Compliance</h2>
+          <p>Estrategia clara, documentación sólida y enfoque preventivo.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img class="slide-bg" src="slide-2.jpg" alt="" aria-hidden="true">
+        <img class="slide-img" src="slide-2.jpg" alt="Prevención de Riesgos Laborales - PRL en Madrid">
+        <div class="slide-text">
+          <h2>Prevención de Riesgos Laborales</h2>
+          <p>Inspecciones, sanciones y apoyo en accidentes laborales.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img class="slide-bg" src="slide-3.jpg" alt="" aria-hidden="true">
+        <img class="slide-img" src="slide-3.jpg" alt="Ciberseguridad y Compliance en Madrid">
+        <div class="slide-text">
+          <h2>Ciberseguridad y Compliance</h2>
+          <p>Políticas internas, prevención y gestión de incidentes.</p>
+        </div>
+      </div>
+
+      <!-- Se mantienen los botones para que el slider siga funcionando como antes,
+           pero quedan ocultos por CSS -->
+      <button class="prev" type="button" aria-label="Anterior">‹</button>
+      <button class="next" type="button" aria-label="Siguiente">›</button>
+
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Abogados en Madrid: PRL, Laboral, Civil/Familia, Penal, Compliance y Ciberseguridad</h1>
+    <p>
+      Enfoque técnico y jurídico para empresas y particulares:
+      <strong><a href="prl.html">Prevención de Riesgos Laborales</a></strong>,
+      <strong><a href="laboral.html">Derecho Laboral</a></strong>,
+      <strong><a href="civil.html">Derecho Civil</a> y <a href="familia.html">Familia</a></strong>,
+      <strong><a href="penal.html">Derecho Penal</a></strong> y
+      <strong><a href="compliance.html">Compliance</a>/<a href="ciberseguridad.html">Ciberseguridad</a></strong>.
+      También ofrecemos asesoramiento específico como
+      <strong><a href="abogado-empresa-madrid.html">abogado para empresas en Madrid</a></strong> y
+      <strong><a href="abogado-laboral-empresa-madrid.html">abogado laboral para empresas</a></strong>.
+      Atención rápida en Madrid y alrededores.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="solicitar-consulta.html" class="btn">Solicitar consulta</a>
+      <a href="tel:+34663932422" class="btn-outline">Llamar ahora</a>
+      <a href="https://wa.me/34663932422" target="_blank" rel="noopener" class="btn-whatsapp">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ ÁREAS PRINCIPALES (SEO + enlaces internos) -->
+<section class="trust" aria-label="Servicios principales en Madrid">
+  <div class="container">
+    <h2>Servicios principales en Madrid</h2>
+    <p class="trust__lead">
+      Si buscas un <strong>abogado en Madrid</strong>, aquí tienes nuestras áreas principales.
+      Entra a la página de cada servicio y solicita consulta por WhatsApp.
+      Si necesitas asesoramiento jurídico continuado para tu actividad, también puedes ver nuestro servicio de
+      <a href="abogado-empresa-madrid.html"><strong>abogado para empresas en Madrid</strong></a>.
+    </p>
+
+    <div class="trust__grid">
+      <article class="trust__card">
+        <div class="trust__icon">🦺</div>
+        <h3><a href="prl.html">PRL (Prevención de Riesgos Laborales)</a></h3>
+        <p>Inspecciones, sanciones, documentación, coordinación y accidentes laborales.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">👷</div>
+        <h3><a href="laboral.html">Derecho Laboral</a></h3>
+        <p>Despidos, reclamaciones salariales, SMAC, sanciones y conflictos laborales.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">👨‍👩‍👧‍👦</div>
+        <h3><a href="familia.html">Derecho de Familia</a></h3>
+        <p>Divorcio, custodia, pensiones, convenio regulador y modificación de medidas.</p>
+      </article>
+    </div>
+
+    <div class="trust__grid" style="margin-top:14px;">
+      <article class="trust__card">
+        <div class="trust__icon">📄</div>
+        <h3><a href="civil.html">Derecho Civil</a></h3>
+        <p>Herencias, contratos, arrendamientos, reclamaciones de cantidad y daños.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">🛡️</div>
+        <h3><a href="penal.html">Derecho Penal</a></h3>
+        <p>Defensa y acusación particular, juicios rápidos, estafas y delitos informáticos.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">🔐</div>
+        <h3><a href="compliance.html">Compliance</a> / <a href="ciberseguridad.html">Ciberseguridad</a></h3>
+        <p>Canal de denuncias, protocolos, RGPD, brechas de datos e incidentes.</p>
+      </article>
+    </div>
+
+    <div class="trust__actions">
+      <a class="btn-outline" href="#areas">Ver todas las áreas</a>
+      <a class="btn" href="solicitar-consulta.html">Pedir consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS PARA EMPRESAS -->
+<section class="trust" aria-label="Asesoramiento jurídico para empresas en Madrid">
+  <div class="container">
+    <h2>Asesoramiento jurídico para empresas en Madrid</h2>
+    <p class="trust__lead">
+      Muchas empresas y autónomos necesitan apoyo legal preventivo para reducir riesgos y tomar decisiones con seguridad.
+      En PCL Abogados trabajamos con un enfoque práctico en contratación, relaciones laborales, PRL, compliance,
+      protección de datos y conflictos empresariales.
+    </p>
+
+    <div class="trust__grid">
+      <article class="trust__card">
+        <div class="trust__icon">🏢</div>
+        <h3><a href="abogado-empresa-madrid.html">Abogado para empresas</a></h3>
+        <p>Asesoramiento legal continuo para pymes, autónomos, empresas familiares y negocios en crecimiento.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">📋</div>
+        <h3><a href="abogado-laboral-empresa-madrid.html">Laboral para empresas</a></h3>
+        <p>Despidos, sanciones, contratos, reclamaciones, SMAC y estrategia laboral empresarial.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">📚</div>
+        <h3><a href="guia-legal-empresas-madrid.html">Guía legal para empresas</a></h3>
+        <p>Resumen práctico de las obligaciones y riesgos legales más habituales para empresas en Madrid.</p>
+      </article>
+    </div>
+
+    <div class="trust__actions">
+      <a class="btn-outline" href="problemas-legales-frecuentes-madrid.html">Problemas legales frecuentes</a>
+      <a class="btn" href="abogado-empresa-madrid.html">Ver asesoramiento empresarial</a>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ CONFIAR -->
+<section class="trust">
+  <div class="container">
+    <h2>¿Por qué confiar en nuestro despacho de abogados?</h2>
+    <p class="trust__lead">
+      En <strong>PCL Abogados</strong> ofrecemos asesoramiento legal en <strong>Madrid</strong> con un enfoque cercano,
+      transparente y riguroso. Estudiamos tu caso con detalle, explicamos cada paso y buscamos la solución más eficaz,
+      tanto en vía judicial como extrajudicial.
+    </p>
+
+    <div class="trust__grid">
+      <article class="trust__card">
+        <div class="trust__icon">🧩</div>
+        <h3>Estrategia personalizada</h3>
+        <p>Analizamos tu situación y diseñamos una estrategia realista orientada a resultados.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">💬</div>
+        <h3>Comunicación clara</h3>
+        <p>Trato directo y actualizado: sabrás el estado del asunto y los próximos pasos.</p>
+      </article>
+
+      <article class="trust__card">
+        <div class="trust__icon">🛡️</div>
+        <h3>Defensa sólida</h3>
+        <p>Rigor técnico, preparación y acompañamiento en procedimientos en Madrid y alrededores.</p>
+      </article>
+    </div>
+
+    <div class="trust__actions">
+      <a class="btn-outline" href="#areas">Descubre cómo trabajamos</a>
+      <a class="btn" href="solicitar-consulta.html">Contacta con nosotros</a>
+    </div>
+  </div>
+</section>
+
+<!-- BUSCAS ABOGADO -->
+<section class="expert">
+  <div class="container expert__grid">
+    <div class="expert__left">
+      <h2>¿Buscas un Abogado experto?</h2>
+      <p class="expert__lead">
+        Abogados expertos en derecho con atención profesional para particulares, autónomos y empresas en Madrid.
+      </p>
+
+      <ul class="expert__list">
+        <li><strong>Derecho Penal:</strong> defensa, acusación particular y asistencia en procedimientos.</li>
+        <li><strong>Derecho Civil:</strong> herencias, contratos, arrendamientos y reclamaciones.</li>
+        <li><strong>Derecho de Familia:</strong> divorcio, custodia, pensiones y modificación de medidas.</li>
+        <li><strong>Derecho Laboral:</strong> despidos, reclamaciones salariales y conflictos laborales.</li>
+        <li><strong>PRL:</strong> inspecciones, sanciones, accidentes y prevención.</li>
+        <li><strong>Compliance/Ciberseguridad:</strong> protocolos, riesgos, incidentes y soporte.</li>
+        <li><strong>Empresas:</strong> asesoramiento preventivo, contratos y estrategia jurídica empresarial en Madrid.</li>
+      </ul>
+    </div>
+
+    <aside class="expert__box">
+      <h3>Atención en Madrid</h3>
+      <p>
+        Citas rápidas y respuesta ágil. Si eres empresa o autónomo, consulta también nuestro servicio de
+        <a href="abogado-empresa-madrid.html"><strong>abogado para empresas en Madrid</strong></a>.
+      </p>
+      <a class="btn-dark" href="solicitar-consulta.html">Pedir consulta</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="areas__head">
+      <h2>Áreas de práctica</h2>
+      <div class="areas__controls">
+        <button class="areas__btn" type="button" id="areasPrev" aria-label="Anterior">‹</button>
+        <button class="areas__btn" type="button" id="areasNext" aria-label="Siguiente">›</button>
+      </div>
+    </div>
+
+    <div class="areas__track" id="areasTrack">
+      <article class="area-card area-card--green"><h3>Derecho Penal</h3><p>Defensa, acusación particular y asistencia.</p></article>
+      <article class="area-card area-card--purple"><h3>Derecho Civil y Familia</h3><p>Divorcios, herencias, contratos y reclamaciones.</p></article>
+      <article class="area-card area-card--orange"><h3>Derecho Laboral</h3><p>Despidos, reclamaciones, conciliación.</p></article>
+      <article class="area-card area-card--teal"><h3>PRL</h3><p>Inspecciones, sanciones, accidentes.</p></article>
+      <article class="area-card area-card--blue"><h3>Compliance</h3><p>Protocolos, prevención, riesgos.</p></article>
+      <article class="area-card area-card--gray"><h3>Ciberseguridad</h3><p>Incidentes, políticas, soporte.</p></article>
+      <article class="area-card area-card--green"><h3>Empresas</h3><p>Asesoramiento jurídico para pymes, autónomos y negocios.</p></article>
+      <article class="area-card area-card--orange"><h3>Laboral Empresas</h3><p>Despidos, contratos, sanciones y estrategia laboral.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <h2>Contacto</h2>
+    <p class="contact__lead">Envíanos tu consulta y te respondemos lo antes posible.</p>
+
+    <div class="contact-page-vertical">
+
+      <!-- 1) DATOS -->
+      <section class="contact-block contact-block-1">
+        <h2>Datos de contacto</h2>
+        <p>Atención en Madrid. Si es urgente, recomendamos llamada directa.</p>
+
+        <div class="contact-item">
+          <div class="contact-ic">⏱️</div>
+          <div>
+            <strong>Horario</strong><br>
+            Lunes a viernes: <strong>8:00 – 17:00</strong>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-ic">🚨</div>
+          <div>
+            <strong>Urgencias</strong><br>
+            <strong>24 horas</strong> (asistencia inmediata en asuntos urgentes)
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-ic">📞</div>
+          <div>
+            <strong>Teléfono</strong><br>
+            <a href="tel:+34663932422">+34 663 932 422</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-ic">✉️</div>
+          <div>
+            <strong>Email</strong><br>
+            <a href="mailto:contacto@pcl-abogados.com">contacto@pcl-abogados.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-ic">📍</div>
+          <div>
+            <strong>Dirección</strong><br>
+            Calle Moscu 56, 28840 Madrid
+          </div>
+        </div>
+
+        <div class="urgent-note">
+          <strong>Urgencias 24h:</strong> si necesita asistencia inmediata, llame directamente al
+          <a href="tel:+34663932422"><strong>+34 663 932 422</strong></a>.
+        </div>
+      </section>
+
+      <!-- 2) WHATSAPP -->
+      <section class="contact-block contact-block-2">
+        <h2>WhatsApp rápido</h2>
+        <p>Rellena y se abrirá WhatsApp con el mensaje preparado.</p>
+
+        <form id="waForm" class="form">
+          <label>
+            Nombre y apellidos <span>*</span>
+            <input type="text" name="name" placeholder="Tu nombre" required>
+          </label>
+
+          <label>
+            Teléfono (opcional)
+            <input type="tel" name="phone" placeholder="Ej. 663 932 422">
+          </label>
+
+          <label>
+            Área (opcional)
+            <select name="area">
+              <option value="">Seleccionar</option>
+              <option>PRL</option>
+              <option>Derecho Laboral</option>
+              <option>Compliance / Ciberseguridad</option>
+              <option>Derecho Penal</option>
+              <option>Derecho Civil</option>
+              <option>Derecho de Familia</option>
+              <option>Abogado Empresa</option>
+              <option>Laboral Empresas</option>
+            </select>
+          </label>
+
+          <label>
+            Mensaje <span>*</span>
+            <textarea name="message" placeholder="Describe tu caso brevemente" required></textarea>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="privacy" required>
+            He leído y acepto la <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.
+          </label>
+
+          <button class="btn" type="submit">Enviar por WhatsApp</button>
+          <p class="note">No se envía nada automáticamente: se abrirá WhatsApp con el texto preparado.</p>
+        </form>
+      </section>
+
+      <!-- 3) EMAIL -->
+      <section class="contact-block contact-block-3">
+        <h2>Formulario de contacto</h2>
+        <p>Envíanos tu consulta y te responderemos lo antes posible.</p>
+
+        <form class="form" action="contacto.php" method="post">
+          <label>Nombre y apellidos <span>*</span><input type="text" name="fullName" required></label>
+          <label>Teléfono <span>*</span><input type="tel" name="tel" required></label>
+          <label>Email <span>*</span><input type="email" name="email" required></label>
+
+          <label>
+            Área (opcional)
+            <select name="area2">
+              <option value="">Seleccionar</option>
+              <option>PRL</option>
+              <option>Derecho Laboral</option>
+              <option>Compliance / Ciberseguridad</option>
+              <option>Derecho Penal</option>
+              <option>Derecho Civil</option>
+              <option>Derecho de Familia</option>
+              <option>Abogado Empresa</option>
+              <option>Laboral Empresas</option>
+            </select>
+          </label>
+
+          <label>Motivo (opcional)<input type="text" name="motivo2" placeholder="Ej. Despido / Inspección / Divorcio..."></label>
+
+          <label>Mensaje <span>*</span><textarea name="message2" required></textarea></label>
+
+          <label class="check">
+            <input type="checkbox" name="privacy2" required>
+            He leído y acepto la <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.
+          </label>
+
+          <button class="btn" type="submit">Enviar</button>
+          <p class="note">El mensaje se enviará a <strong>contacto@pcl-abogados.com</strong>.</p>
+        </form>
+      </section>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a
+  href="https://wa.me/34663932422"
+  class="floating-whatsapp"
+  target="_blank"
+  rel="noopener"
+  aria-label="Abrir WhatsApp"
+  title="WhatsApp"
+>W</a>
+
+<!-- BOTÓN SUBIR -->
+<button id="toTop" type="button" aria-label="Subir">↑</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 PCL Abogados ·
+  <a href="solicitar-consulta.html">Contacto</a> ·
+  <a href="aviso-legal.html">Aviso legal</a> ·
+  <a href="politica-privacidad.html">Política de privacidad</a> ·
+  <a href="cookies.html">Cookies</a> ·
+  <a href="#" onclick="openCookieSettings(); return false;">Configurar cookies</a> ·
+  <a href="https://wa.me/34663932422" target="_blank" rel="noopener">WhatsApp</a>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+  <div class="cookie-card">
+    <div class="cookie-text">
+      <h2 id="cookieTitle">Cookies</h2>
+      <p id="cookieDesc">
+        Usamos cookies para que la web funcione correctamente y, si lo aceptas, para analizar el uso y mejorar el servicio.
+        Puedes aceptar, rechazar o configurar tus preferencias. Más info en nuestra
+        <a href="cookies.html">Política de cookies</a>.
+      </p>
+    </div>
+
+    <div class="cookie-actions">
+      <button type="button" class="btn-outline cookie-btn" id="cookieReject">Rechazar</button>
+      <button type="button" class="btn-outline cookie-btn" id="cookieSettings">Configurar</button>
+      <button type="button" class="btn cookie-btn" id="cookieAccept">Aceptar</button>
+    </div>
+
+    <div id="cookiePrefs" class="cookie-prefs" hidden>
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Necesarias</strong>
+          <p class="cookie-small">Siempre activas. Permiten funciones básicas y seguridad.</p>
+        </div>
+        <div class="cookie-switch cookie-switch--locked" aria-label="Cookies necesarias (siempre activas)">
+          <span>Activadas</span>
+        </div>
+      </div>
+
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Analíticas</strong>
+          <p class="cookie-small">Nos ayudan a entender el uso de la web para mejorarla.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookieAnalytics" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+          <span class="cookie-toggle-text">Activar</span>
+        </label>
+      </div>
+
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Marketing</strong>
+          <p class="cookie-small">Permiten medir campañas y mostrar contenido más relevante.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookieMarketing" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+          <span class="cookie-toggle-text">Activar</span>
+        </label>
+      </div>
+
+      <div class="cookie-actions cookie-actions--prefs">
+        <button type="button" class="btn-outline cookie-btn" id="cookieSave">Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCRIPTS (TODO AL FINAL) ===== -->
+<script>
+  // ===== Cookies =====
+  (function(){
+    const KEY = "pcl_cookie_consent_v1";
+
+    const banner = document.getElementById("cookieBanner");
+    const prefs = document.getElementById("cookiePrefs");
+
+    const btnAccept = document.getElementById("cookieAccept");
+    const btnReject = document.getElementById("cookieReject");
+    const btnSettings = document.getElementById("cookieSettings");
+    const btnSave = document.getElementById("cookieSave");
+
+    const cbAnalytics = document.getElementById("cookieAnalytics");
+    const cbMarketing = document.getElementById("cookieMarketing");
+
+    function getConsent(){
+      try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; }
+    }
+
+    function setConsent(consent){
+      localStorage.setItem(KEY, JSON.stringify(consent));
+    }
+
+    function hideBanner(){
+      if (!banner) return;
+      banner.classList.add("is-hidden");
+      setTimeout(() => { banner.style.display = "none"; }, 200);
+    }
+
+    function showBanner(openPrefs=false){
+      if (!banner) return;
+      banner.style.display = "block";
+      banner.classList.remove("is-hidden");
+      prefs.hidden = !openPrefs;
+    }
+
+    function applyConsent(consent){
+      // if (consent.analytics) loadGA();
+      // if (consent.marketing) loadMetaPixel();
+    }
+
+    window.openCookieSettings = function(){
+      const current = getConsent() || { necessary:true, analytics:false, marketing:false, ts: Date.now() };
+      cbAnalytics.checked = !!current.analytics;
+      cbMarketing.checked = !!current.marketing;
+      showBanner(true);
+    };
+
+    const current = getConsent();
+    if (!current){
+      cbAnalytics.checked = false;
+      cbMarketing.checked = false;
+      showBanner(false);
+    } else {
+      applyConsent(current);
+      hideBanner();
+    }
+
+    btnSettings?.addEventListener("click", () => {
+      const c = getConsent();
+      if (c){
+        cbAnalytics.checked = !!c.analytics;
+        cbMarketing.checked = !!c.marketing;
+      }
+      prefs.hidden = false;
+    });
+
+    btnAccept?.addEventListener("click", () => {
+      const consent = { necessary:true, analytics:true, marketing:true, ts: Date.now() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    btnReject?.addEventListener("click", () => {
+      const consent = { necessary:true, analytics:false, marketing:false, ts: Date.now() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    btnSave?.addEventListener("click", () => {
+      const consent = {
+        necessary:true,
+        analytics: !!cbAnalytics.checked,
+        marketing: !!cbMarketing.checked,
+        ts: Date.now()
+      };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+  })();
+
+  // ===== Menú móvil (toggle + backdrop) =====
+  (function(){
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('mainNav');
+    if(!btn || !nav) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    function openMenu(){
+      nav.classList.add('is-open');
+      btn.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu(){
+      nav.classList.remove('is-open');
+      btn.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', () => {
+      nav.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 680) closeMenu();
+    });
+  })();
+
+  // ===== Slider (autoplay) =====
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  const slider = document.querySelector('.slides');
+
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  nextBtn?.addEventListener('click', () => { stopAuto(); nextSlide(); startAuto(); });
+  prevBtn?.addEventListener('click', () => { stopAuto(); prevSlide(); startAuto(); });
+
+  let timer = null;
+  const INTERVAL = 2500;
+
+  function startAuto() {
+    if (timer) return;
+    timer = setInterval(() => { if (!document.hidden) nextSlide(); }, INTERVAL);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  slider?.addEventListener('mouseenter', stopAuto);
+  slider?.addEventListener('mouseleave', startAuto);
+  document.addEventListener('visibilitychange', () => document.hidden ? stopAuto() : startAuto());
+
+  showSlide(currentSlide);
+  startAuto();
+
+  // ===== Áreas autoplay (scroll horizontal) =====
+  (function(){
+    const track = document.getElementById('areasTrack');
+    const prev = document.getElementById('areasPrev');
+    const next = document.getElementById('areasNext');
+    if(!track || !prev || !next) return;
+
+    const step = () => Math.min(360, track.clientWidth * 0.85);
+
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+
+    let t = null;
+    const SPEED = 2600;
+
+    function tick(){
+      const atEnd = Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth;
+      if (atEnd) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else track.scrollBy({ left: step(), behavior: 'smooth' });
+    }
+
+    function start(){ if (t) return; t = setInterval(() => { if(!document.hidden) tick(); }, SPEED); }
+    function stop(){ clearInterval(t); t = null; }
+
+    track.addEventListener('mouseenter', stop);
+    track.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+    start();
+  })();
+
+  // ===== WhatsApp rápido =====
+  (function(){
+    const form = document.getElementById('waForm');
+    if(!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = form.elements['name'].value.trim();
+      const phone = form.elements['phone'].value.trim();
+      const area = form.elements['area'].value.trim();
+      const message = form.elements['message'].value.trim();
+
+      if (!name || !message) return;
+
+      const txt =
+`Hola, soy ${name}.
+Teléfono: ${phone || '---'}
+Área: ${area || '---'}
+
+Mensaje:
+${message}`;
+
+      const url = "https://wa.me/34663932422?text=" + encodeURIComponent(txt);
+      window.open(url, "_blank", "noopener");
+    });
+  })();
+
+  // ===== ToTop =====
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (!toTop) return;
+    toTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, { passive: true });
+
+  toTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

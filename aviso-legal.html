@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso legal | PCL Abogados</title>
+  <meta name="description" content="Aviso legal de PCL Abogados: titularidad del sitio web, condiciones de uso, propiedad intelectual, responsabilidad y contacto." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- =========================
+     COOKIE BANNER (CONSENT)
+     Pegar justo antes de </body>
+     ========================= -->
+
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+  <div class="cookie-card">
+    <div class="cookie-text">
+      <h2 id="cookieTitle">Cookies</h2>
+      <p id="cookieDesc">
+        Usamos cookies para que la web funcione correctamente y, si lo aceptas, para analizar el uso y mejorar el servicio.
+        Puedes aceptar, rechazar o configurar tus preferencias. Más info en nuestra
+        <a href="cookies.html">Política de cookies</a>.
+      </p>
+    </div>
+
+    <div class="cookie-actions">
+      <button type="button" class="btn-outline cookie-btn" id="cookieReject">Rechazar</button>
+      <button type="button" class="btn-outline cookie-btn" id="cookieSettings">Configurar</button>
+      <button type="button" class="btn cookie-btn" id="cookieAccept">Aceptar</button>
+    </div>
+
+    <div id="cookiePrefs" class="cookie-prefs" hidden>
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Necesarias</strong>
+          <p class="cookie-small">Siempre activas. Permiten funciones básicas y seguridad.</p>
+        </div>
+        <div class="cookie-switch cookie-switch--locked" aria-label="Cookies necesarias (siempre activas)">
+          <span>Activadas</span>
+        </div>
+      </div>
+
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Analíticas</strong>
+          <p class="cookie-small">Nos ayudan a entender el uso de la web para mejorarla.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookieAnalytics" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+          <span class="cookie-toggle-text">Activar</span>
+        </label>
+      </div>
+
+      <div class="cookie-pref-row">
+        <div>
+          <strong>Marketing</strong>
+          <p class="cookie-small">Permiten medir campañas y mostrar contenido más relevante.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="cookieMarketing" />
+          <span class="cookie-slider" aria-hidden="true"></span>
+          <span class="cookie-toggle-text">Activar</span>
+        </label>
+      </div>
+
+      <div class="cookie-actions cookie-actions--prefs">
+        <button type="button" class="btn-outline cookie-btn" id="cookieSave">Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const KEY = "pcl_cookie_consent_v1";
+
+    const banner = document.getElementById("cookieBanner");
+    const prefs = document.getElementById("cookiePrefs");
+
+    const btnAccept = document.getElementById("cookieAccept");
+    const btnReject = document.getElementById("cookieReject");
+    const btnSettings = document.getElementById("cookieSettings");
+    const btnSave = document.getElementById("cookieSave");
+
+    const cbAnalytics = document.getElementById("cookieAnalytics");
+    const cbMarketing = document.getElementById("cookieMarketing");
+
+    function getConsent(){
+      try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; }
+    }
+
+    function setConsent(consent){
+      localStorage.setItem(KEY, JSON.stringify(consent));
+    }
+
+    function hideBanner(){
+      if (!banner) return;
+      banner.classList.add("is-hidden");
+      setTimeout(() => { banner.style.display = "none"; }, 200);
+    }
+
+    function showBanner(openPrefs=false){
+      if (!banner) return;
+      banner.style.display = "block";
+      banner.classList.remove("is-hidden");
+
+      if (openPrefs){
+        prefs.hidden = false;
+      } else {
+        prefs.hidden = true;
+      }
+    }
+
+    // 👉 Aquí cargas scripts SOLO si el usuario acepta
+    function applyConsent(consent){
+      // consent = { necessary:true, analytics:boolean, marketing:boolean, ts:number }
+
+      // EJEMPLO: cargar Google Analytics SOLO si analytics=true
+      // if (consent.analytics) loadGA();
+
+      // EJEMPLO: cargar Pixel SOLO si marketing=true
+      // if (consent.marketing) loadMetaPixel();
+    }
+
+    // Permite abrir el panel desde un link del footer
+    window.openCookieSettings = function(){
+      const current = getConsent() || { necessary:true, analytics:false, marketing:false, ts: Date.now() };
+      cbAnalytics.checked = !!current.analytics;
+      cbMarketing.checked = !!current.marketing;
+      showBanner(true);
+    };
+
+    // Inicial
+    const current = getConsent();
+    if (!current){
+      // Primera visita: mostrar banner
+      cbAnalytics.checked = false;
+      cbMarketing.checked = false;
+      showBanner(false);
+    } else {
+      // Ya hay elección: aplicar y no mostrar
+      applyConsent(current);
+      hideBanner();
+    }
+
+    btnSettings?.addEventListener("click", () => {
+      const c = getConsent();
+      if (c){
+        cbAnalytics.checked = !!c.analytics;
+        cbMarketing.checked = !!c.marketing;
+      }
+      prefs.hidden = false;
+    });
+
+    btnAccept?.addEventListener("click", () => {
+      const consent = { necessary:true, analytics:true, marketing:true, ts: Date.now() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    btnReject?.addEventListener("click", () => {
+      const consent = { necessary:true, analytics:false, marketing:false, ts: Date.now() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    btnSave?.addEventListener("click", () => {
+      const consent = {
+        necessary:true,
+        analytics: !!cbAnalytics.checked,
+        marketing: !!cbMarketing.checked,
+        ts: Date.now()
+      };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+  })();
+</script>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  Madrid · Calle Moscu 56, 28840
+  &nbsp; 📞 <a href="tel:+34663932422">+34 663 932 422</a> ·
+  ✉️ <a href="mailto:contacto@pcl-abogados.com">contacto@pcl-abogados.com</a> ·
+  🟢 <a href="https://wa.me/34663932422" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+
+    <div class="logo">
+      <strong>PCL Abogados</strong><br>
+      <span>PRL, Derecho Laboral y Compliance/Ciberseguridad · Madrid</span>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav" aria-label="Navegación principal">
+  <a href="index.html" aria-current="page">Inicio</a>
+  <a href="abogado-en-madrid-pcl-abogados.html">Abogado en Madrid</a>
+  <a href="abogado-empresa-madrid.html">Abogado Empresa</a>
+  <a href="abogado-laboral-empresa-madrid.html">Laboral Empresas</a>
+  <a href="prl.html">PRL</a>
+  <a href="ciberseguridad.html">Ciberseguridad</a>
+  <a href="compliance.html">Compliance</a>
+  <a href="penal.html">Penal</a>
+  <a href="civil.html">Civil</a>
+  <a href="familia.html">Familia</a>
+  <a href="blog.html">Blog</a>
+  <a href="solicitar-consulta.html" class="btn-nav">Solicitar consulta</a>
+</nav>
+
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+
+    <header class="page-hero">
+      <h1>Aviso legal</h1>
+      <p class="page-lead">
+        Información sobre la titularidad de este sitio web, condiciones de uso, responsabilidad y propiedad intelectual.
+      </p>
+    </header>
+
+    <section class="prl-content">
+      <h2>1. Titularidad del sitio web</h2>
+      <p>
+        En cumplimiento de la normativa aplicable, se informa que el presente sitio web
+        <strong>https://pcl-abogados.com</strong> (en adelante, el “Sitio Web”) es titularidad de:
+      </p>
+
+      <ul class="checklist">
+        <li><strong>Nombre comercial:</strong> PCL Abogados</li>
+        <li><strong>Domicilio:</strong> Calle Moscu 56, 28840 Madrid (España)</li>
+        <li><strong>Teléfono:</strong> <a href="tel:+34663932422">+34 663 932 422</a></li>
+        <li><strong>Email:</strong> <a href="mailto:contacto@pcl-abogados.com">contacto@pcl-abogados.com</a></li>
+      </ul>
+
+      
+
+      <h2>2. Objeto y ámbito de aplicación</h2>
+      <p>
+        El acceso y uso del Sitio Web atribuye la condición de usuario e implica la aceptación de este Aviso Legal.
+        El usuario se compromete a hacer un uso diligente, correcto y lícito de los contenidos y servicios.
+      </p>
+
+      <h2>3. Condiciones de uso</h2>
+      <ul class="checklist">
+        <li>No utilizar el Sitio Web con fines ilícitos o contrarios a la buena fe y al orden público.</li>
+        <li>No introducir o difundir virus, malware o cualquier sistema susceptible de causar daños.</li>
+        <li>No intentar acceder a áreas restringidas sin autorización.</li>
+        <li>No reproducir, copiar o distribuir contenidos sin autorización, salvo que esté legalmente permitido.</li>
+      </ul>
+
+      <h2>4. Propiedad intelectual e industrial</h2>
+      <p>
+        Todos los contenidos del Sitio Web (textos, diseños, logos, imágenes, estructura, código, etc.) son titularidad
+        de PCL Abogados o de terceros con licencia, y están protegidos por la normativa de propiedad intelectual e industrial.
+      </p>
+      <p>
+        Queda prohibida su reproducción, distribución o comunicación pública sin autorización expresa, salvo en los supuestos
+        legalmente permitidos.
+      </p>
+
+      <h2>5. Responsabilidad</h2>
+      <p>
+        PCL Abogados no garantiza la disponibilidad permanente del Sitio Web ni la ausencia de errores. No se hace responsable de:
+      </p>
+      <ul class="checklist">
+        <li>Daños derivados de interrupciones, fallos técnicos o desconexiones.</li>
+        <li>Daños causados por virus u otros elementos dañinos, cuando sea ajeno al control del titular.</li>
+        <li>Uso que el usuario haga de la información del Sitio Web.</li>
+      </ul>
+
+      <h2>6. Enlaces a terceros</h2>
+      <p>
+        Este Sitio Web puede incluir enlaces a páginas de terceros. PCL Abogados no asume responsabilidad por contenidos,
+        políticas o prácticas de sitios externos.
+      </p>
+
+      <h2>7. Comunicaciones</h2>
+      <p>
+        Para contactar con nosotros, puedes escribir a
+        <a href="mailto:contacto@pcl-abogados.com">contacto@pcl-abogados.com</a> o llamar al
+        <a href="tel:+34663932422">+34 663 932 422</a>.
+      </p>
+
+      <h2>8. Legislación y jurisdicción</h2>
+      <p>
+        Este Aviso Legal se rige por la legislación española. En caso de conflicto, las partes se someterán a los juzgados
+        y tribunales que correspondan conforme a la normativa aplicable.
+      </p>
+
+      <p class="note">
+        Última actualización: 22/02/2026.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  © 2026 PCL Abogados ·
+  <a href="solicitar-consulta.html">Contacto</a> ·
+  <a href="aviso-legal.html" aria-current="page">Aviso legal</a> ·
+  <a href="politica-privacidad.html">Política de privacidad</a> ·
+  <a href="cookies.html">Cookies</a> ·
+  <a href="https://wa.me/34663932422" target="_blank" rel="noopener">WhatsApp</a>
+</footer>
+
+<button id="toTop" type="button" aria-label="Subir">↑</button>
+
+<script>
+  // ===== Menú móvil (hamburguesa) =====
+  (function(){
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('mainNav');
+    if(!btn || !nav) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    function openMenu(){
+      nav.classList.add('is-open');
+      btn.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu(){
+      nav.classList.remove('is-open');
+      btn.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', () => {
+      nav.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', () => { if(window.innerWidth > 680) closeMenu(); });
+  })();
+
+  // ===== ToTop =====
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (!toTop) return;
+    toTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, { passive: true });
+  toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>

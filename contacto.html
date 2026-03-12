@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Contacto | TRB Pavimentos Madrid</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Contacto TRB Pavimentos: hormigón impreso, hormigón pulido, microcemento, soleras y muros en Madrid y alrededores. Formulario por WhatsApp y mapa." />
+  <meta name="keywords" content="contacto hormigón impreso Madrid, presupuesto hormigón pulido, microcemento Madrid, soleras Madrid, TRB Pavimentos" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b3f2f" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    img{max-width:100%;height:auto;display:block}
+
+    /* Ajustes de esta página */
+    .contact-hero{ padding: 28px 0 16px; }
+    .contact-hero .hero-box{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .note{
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(8,58,44,.18);
+      background:
+        radial-gradient(700px 240px at 10% 10%, rgba(34,197,94,.14), transparent 55%),
+        #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    /* Email legible */
+    a.mail-clean{ text-decoration:none !important; }
+    a.mail-clean:hover{ text-decoration:underline !important; text-underline-offset:3px; }
+
+    /* Links footer legibles */
+    .site-footer a, .footer-contact a{ text-decoration:none !important; }
+    .site-footer a:hover, .footer-contact a:hover{ text-decoration:underline !important; text-underline-offset:3px; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#home" aria-label="Ir al inicio">
+        <span class="brand-logo">TRB</span>
+        <span class="brand-text">
+          <strong>TRB Pavimentos</strong>
+          <small>Hormigón impreso · pulido · microcemento</small>
+        </span>
+      </a>
+
+      <div class="header-cta">
+        <a class="header-phone" href="tel:+34643931135" aria-label="Llamar a TRB Pavimentos">
+          📞 <span>643 931 135</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="index.html">Home</a>
+        <a href="sobre-nosotros.html">Sobre nosotros</a>
+        <a href="galeria.html">Galería</a>
+        <a href="colores-moldes.html">Colores y moldes</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="btn btn-primary" href="presupuesto.html">Presupuesto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="hero-box">
+          <h1 style="margin:0 0 8px;">Contacto</h1>
+          <p class="muted" style="margin:0;">
+            ¿Quieres mejorar tu <strong>jardín</strong>, <strong>patio</strong> o <strong>entrada</strong> con
+            <strong>hormigón impreso</strong>? ¿Buscas un acabado resistente con <strong>hormigón pulido</strong>?
+            Escríbenos y te orientamos según tu proyecto en <strong>Madrid y alrededores</strong>.
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="hero-contact">
+            <a class="pill" href="tel:+34643931135">📞 643 931 135</a>
+            <a class="pill mail-clean" href="mailto:trb_info26@yahoo.com">✉️ trb_info26@yahoo.com</a>
+            <span class="pill">📍 Ferraz 22, Alcalá de Henares (Madrid)</span>
+          </div>
+
+          <div class="note">
+            <strong>Consejo rápido:</strong>
+            <span class="muted">
+              Si puedes, indícanos los <strong>m² aproximados</strong>, si es <strong>interior/exterior</strong> y el tipo de acabado
+              (impreso, pulido, microcemento…). Así podremos darte una orientación más precisa.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM + MAPA -->
+    <section class="section section-soft">
+      <div class="container">
+        <header class="section-head">
+          <h2>Envíanos tu consulta por WhatsApp</h2>
+          <p class="muted">Rellena el formulario y se abrirá WhatsApp con el mensaje listo para enviar.</p>
+        </header>
+
+        <div class="contact-grid">
+          <!-- Formulario WhatsApp -->
+          <div class="card">
+            <h3>Formulario rápido</h3>
+
+            <form id="waContactForm" class="form">
+              <div class="field">
+                <label for="cName">Nombre</label>
+                <input id="cName" type="text" placeholder="Tu nombre" required>
+              </div>
+
+              <div class="field">
+                <label for="cZone">Zona (Madrid / alrededores)</label>
+                <input id="cZone" type="text" placeholder="Ej: Alcalá, Torrejón, Madrid..." required>
+              </div>
+
+              <div class="field">
+                <label for="cService">Servicio</label>
+                <select id="cService" required>
+                  <option value="">Selecciona una opción</option>
+                  <option>Hormigón impreso</option>
+                  <option>Hormigón pulido</option>
+                  <option>Hormigón pulido (alto brillo)</option>
+                  <option>Hormigón semipulido</option>
+                  <option>Hormigón fratasado (afrotado)</option>
+                  <option>Árido visto</option>
+                  <option>Microcemento</option>
+                  <option>Soleras y muros</option>
+                  <option>Hormigón vertical y escaleras</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="cMeters">Metros aproximados (opcional)</label>
+                <input id="cMeters" type="text" placeholder="Ej: 45 m²">
+              </div>
+
+              <div class="field">
+                <label for="cMsg">Mensaje</label>
+                <textarea id="cMsg" rows="5" placeholder="Cuéntanos qué quieres hacer (jardín, patio, garaje, piscina...), estado actual, plazos..." required></textarea>
+              </div>
+
+              <div class="actions">
+                <button class="btn btn-whatsapp" id="waSendBtn" type="button">Enviar por WhatsApp</button>
+                <a class="btn btn-outline" href="presupuesto.html">Pedir presupuesto</a>
+              </div>
+
+              <p class="tiny muted" style="margin-top:10px;">
+                Respuesta rápida. Trabajos en Madrid y alrededores.
+              </p>
+            </form>
+
+            <div class="divider"></div>
+
+            <p class="muted" style="margin:0;">
+              También puedes escribirnos por email:
+              <a class="mail-clean" href="mailto:trb_info26@yahoo.com"><strong>trb_info26@yahoo.com</strong></a>
+            </p>
+          </div>
+
+          <!-- Mapa -->
+          <div class="card">
+            <h3>Ubicación</h3>
+            <p class="muted">Ferraz 22, Alcalá de Henares, Madrid 28807</p>
+
+            <div class="map-embed" aria-label="Mapa de Google">
+              <iframe
+                title="Ubicación Ferraz 22 Alcalá de Henares"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Ferraz%2022%20Alcal%C3%A1%20de%20Henares%20Madrid%2028807&output=embed">
+              </iframe>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="callout" style="margin:0;">
+              <h3 style="margin-top:0;">¿Quieres mejorar tu exterior?</h3>
+              <ul class="list">
+                <li>✅ Jardines y patios con hormigón impreso</li>
+                <li>✅ Garajes y naves con hormigón pulido resistente</li>
+                <li>✅ Zonas húmedas con acabados antideslizantes</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="presupuesto.html">Pedir presupuesto</a>
+                <a class="btn btn-outline" href="galeria.html">Ver trabajos</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp flotante -->
+  <a class="wa-float" id="waFloat"
+     href="https://wa.me/34643931135?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20hormig%C3%B3n%20impreso%2Fp%C3%BAlido%20en%20Madrid%20y%20alrededores."
+     aria-label="Contactar por WhatsApp" rel="nofollow">
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- Botón subir -->
+  <button class="to-top" id="toTop" aria-label="Subir arriba" type="button">↑</button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div>
+        <strong class="footer-brand">TRB Pavimentos</strong>
+        <p class="tiny footer-text">
+          Hormigón impreso · hormigón pulido · microcemento · soleras · muros · Madrid y alrededores
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="cookies.html">Cookies</a>
+        <!-- ✅ link correcto -->
+        <a href="politica-de-privacidad.html">Política de privacidad</a>
+      </div>
+
+      <div class="footer-contact">
+        <a href="tel:+34643931135">📞 643 931 135</a>
+        <a class="mail-clean" href="mailto:trb_info26@yahoo.com">✉️ trb_info26@yahoo.com</a>
+        <span class="tiny footer-text">📍 Ferraz 22, Alcalá de Henares (Madrid)</span>
+      </div>
+    </div>
+
+    <div class="container footer-bottom tiny footer-text">
+      © <span id="year"></span> TRB Pavimentos. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script>
+    // ===== Menú móvil con overlay (solo si existe el menú) =====
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+
+    let overlay = null;
+
+    function ensureOverlay(){
+      if (overlay) return overlay;
+      overlay = document.createElement('div');
+      overlay.className = 'nav-overlay';
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', () => setNav(false));
+      return overlay;
+    }
+
+    function setNav(open) {
+      if (!navToggle || !nav) return;
+      const ov = ensureOverlay();
+      nav.classList.toggle('is-open', open);
+      ov.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+    }
+
+    if (navToggle && nav) {
+      navToggle.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
+
+      nav.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a) return;
+        if (window.matchMedia('(max-width: 900px)').matches) setNav(false);
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.matchMedia('(min-width: 901px)').matches) setNav(false);
+      });
+    }
+
+    // ===== WhatsApp (1 sola vez, sin doble apertura) =====
+    const PHONE = "34643931135";
+    const waBase = `https://wa.me/${PHONE}`;
+    const encodeWA = (t) => encodeURIComponent((t || "").trim());
+
+    const waSendBtn = document.getElementById('waSendBtn');
+    const form = document.getElementById('waContactForm');
+
+    function buildWaUrl(){
+      const name = document.getElementById('cName')?.value || "";
+      const zone = document.getElementById('cZone')?.value || "";
+      const service = document.getElementById('cService')?.value || "";
+      const meters = document.getElementById('cMeters')?.value || "";
+      const msg = document.getElementById('cMsg')?.value || "";
+
+      const text =
+`Hola, soy ${name}.
+Zona: ${zone}
+Servicio: ${service}
+Metros aprox.: ${meters}
+Mensaje: ${msg}`;
+
+      return `${waBase}?text=${encodeWA(text)}`;
+    }
+
+    function openWhatsAppFromUserGesture(){
+      if (form && !form.reportValidity()) return;
+      window.location.assign(buildWaUrl());
+    }
+
+    waSendBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openWhatsAppFromUserGesture();
+    });
+
+    // ===== Flecha subir =====
+    const toTop = document.getElementById('toTop');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function onScroll() {
+      if (!toTop) return;
+      const y = window.scrollY || document.documentElement.scrollTop;
+      toTop.classList.toggle('is-visible', y > 500);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    toTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
+    // Año
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
